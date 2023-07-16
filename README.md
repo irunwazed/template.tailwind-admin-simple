@@ -1,11 +1,21 @@
 # Tailwind CSS Admin Template
 
+## install
+
+```
+npm install
+```
 
 ## running
 
+open file './public/index.html'
+
+
+and for developer
 ```
 npm run dev
 ```
+
 
 ## contoh
 
