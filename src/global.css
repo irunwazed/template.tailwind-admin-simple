@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.form-control {
+	@apply w-full px-4 py-3 mt-2 rounded-lg shadow-lg focus:outline-none focus:ring-1 focus:ring-cyan-500 placeholder:text-slate-400 placeholder:text-sm text-secondary text-base;
+}
+
+.btn {
+	@apply font-semibold text-lg text-white  py-3 px-5 rounded-xl shadow-xl hover:opacity-80;
+}
+
+.nav-link {
+	@apply flex py-3 px-2 px-3 hover:text-warning hover:font-semibold;
+}
+
+.nav-link.active {
+	@apply bg-white rounded-full text-warning font-semibold my-4;
+}
