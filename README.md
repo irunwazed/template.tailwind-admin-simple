@@ -1,4 +1,4 @@
-# Tailwin Admin Template
+# Tailwind CSS Admin Template
 
 
 ## running
