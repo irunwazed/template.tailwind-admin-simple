@@ -10,8 +10,8 @@
 
 	<div class="w-full flex">
 
-		<!-- Navbar Start -->
-		<div class="h-screen overflow-scroll bg-dark min-w-[230px] p-7 text-white shadow-lg">
+		<!-- Narbar Start -->
+		<nav class="h-screen overflow-x-scroll bg-dark min-w-[230px] p-7 text-white shadow-lg">
 			<div class="flex mb-12 text-warning px-2">
 				<svg class="" fill="currentColor" role="img" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vector Logo Zone</title><path d="M19.458 0l-5.311 2.024 1.989.534-4.847 16.085-4.867-16.25H1.48L8.974 24h4.645l7.043-20.226 1.858.499Z"/></svg>
 				<span class="font-bold text-2xl text-white ml-3 ">Admin</span>
@@ -24,13 +24,13 @@
 					</a>
 				</li>
 				<li>
-					<a href="#" class="nav-link active">
+					<a href="home.html" class="nav-link active">
 						<svg fill="currentColor" width="15" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>HomeAdvisor</title><path d="M15.98 2.442H8.02L0 10.46h2.275l6.882-6.88 6.881 6.881H24l-8.02-8.018m-.492 9.348L9.157 5.459 4.01 10.605v4.987a1.33 1.33 0 0 0 1.329 1.329h6.077l4.637 4.637v-4.637h2.598a1.33 1.33 0 0 0 1.33-1.33V11.79h-4.494Z"/></svg>
 						<span class="ml-2 text-sm ">Dashboard</span>
 					</a>
 				</li>
 				<li>
-					<a href="#" class="nav-link">
+					<a href="content.html" class="nav-link">
 						<svg fill="currentColor" width="15" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>OpenProject</title><path d="M19.35.37h-1.86a4.628 4.628 0 0 0-4.652 4.624v5.609H4.652A4.628 4.628 0 0 0 0 15.23v3.721c0 2.569 2.083 4.679 4.652 4.679h1.86c2.57 0 4.652-2.11 4.652-4.679v-3.72c0-.063 0-.158-.005-.158H8.373v3.88c0 1.026-.835 1.886-1.861 1.886h-1.86c-1.027 0-1.861-.864-1.861-1.886V15.23a1.839 1.839 0 0 1 1.86-1.833h14.697c2.57 0 4.652-2.11 4.652-4.679V4.997A4.628 4.628 0 0 0 19.35.37Zm1.861 8.345c0 1.026-.835 1.886-1.861 1.886h-3.721V4.997a1.839 1.839 0 0 1 1.86-1.833h1.86a1.839 1.839 0 0 1 1.862 1.833zm-8.373 9.706a.236.236 0 0 0 0 .03c0 .746.629 1.344 1.396 1.344.767 0 1.395-.594 1.395-1.34a.188.188 0 0 0 0-.034v-3.35h-2.791z"/></svg>
 						<span class="ml-2 text-sm ">Project</span>
 					</a>
@@ -73,35 +73,58 @@
 				</li>
 				
 			</ul>
-		</div>
-		<!-- Navbar End -->
+		</nav>
+		<!-- Narbar End -->
 
 		<!-- Content Start -->
-		<div class="w-full">
-			<div class="w-full px-5 py-3 flow-root">
-				<div class="float-left font-semibold text-3xl">
-					Dashboard
-				</div>
-				<div class="float-right ">
-					<div class=""></div>
-				</div>
-			</div>
-			<hr class="border-t-1 border-secondary">
+		<section class="w-full">
+      
+      <div class="w-full px-5 py-3 flow-root">
+        <div class="float-left font-semibold text-3xl">
+            Dashboard
+        </div>
+        <div class="float-right ">
+            <div class=""></div>
+        </div>
+      </div>
+      <hr class="border-t-1 border-secondary">
 
-			<div class="w-full px-5 py-3">
-				<div class="w-full flow-root">
-					<div class="float-left font-semibold text-xl">
-						Overview
-					</div>
-					<div class="float-right">
-						last day
-					</div>
-				</div>
-			</div>
+      <!-- Load Content -->
+      <div id="content"></div>
 
-		</div>
+		</section>
 		<!-- Content End -->
 	</div>
+	
+<script>
+
+	const content = document.querySelector('#content');
+  const baseContent = 'home.html';
+
+	document.querySelector("nav").addEventListener('click', function(e) {
+		var anchor = e.target.closest('a');
+		if(anchor !== null) {
+      e.preventDefault();
+      content.innerHTML = '';
+      let link = anchor.getAttribute('href');
+      if(link === '#'){
+        link = baseContent;
+      }
+      setContent(link);
+		}
+	}, true)
+
+  function setContent(link){
+
+    let objectTag = document.createElement('object');
+    objectTag.style.width = '100%';
+    objectTag.type = 'text/html';
+    objectTag.data = link;
+    content.appendChild(objectTag);
+  }
+  setContent(baseContent);
+
+	</script>
 	
 
 </body>
