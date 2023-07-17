@@ -78,7 +78,7 @@
 		<!-- Narbar End -->
 
 		<!-- Content Start -->
-		<section id="content" class="w-full transition-all duration-500">
+		<section id="content" class="w-full transition-all duration-500 px-5">
       
       <div class="w-full px-5 py-3 flow-root">
         <div class="float-left font-semibold text-3xl">
@@ -91,7 +91,7 @@
       <hr class="border-t-1 border-secondary">
 
       <!-- Load Content -->
-      <div id="content-child"></div>
+      <div id="content-child" class="w-full h-screen"></div>
 
 		</section>
 		<!-- Content End -->
@@ -119,6 +119,7 @@
 
     let objectTag = document.createElement('object');
     objectTag.style.width = '100%';
+    objectTag.style.height = '100%';
     objectTag.type = 'text/html';
     objectTag.data = link;
 		contentChild.innerHTML = '';
