@@ -6,13 +6,15 @@
 	<title>Admin</title>
 	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body class="bg-default font-thin">
+<body class="bg-default font-thin" >
 
 	<div class="w-full flex">
 
 		<!-- Narbar Start -->
-		<button id="btn-nav" class="fixed w-10 h-10 bg-slate-500 rounded-full shadow-lg z-50 -left-3 top-10 backdrop-blur-lg opacity-80 transition duration-500 font-bold">></button>
-		<nav class="h-screen overflow-x-scroll bg-dark min-w-[230px] p-7 text-white shadow-lg -translate-x-[230px] transition duration-500 absolute">
+		<button id="btn-nav" class=" fixed w-10 h-10 bg-warning text-white rounded-full shadow-lg z-50 -left-3 top-10 backdrop-blur-lg opacity-80 transition duration-500 font-bold">
+      <svg fill="currentColor" class="translate-x-3  duration-500" width="25" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Power Automate</title><path d="m20.079 7.235 3.666 4.097c.34.38.34.956 0 1.336l-7.63 8.528c-.19.213-.462.334-.748.334H7.289l12.79-14.295ZM6.789 21.53H1.005c-.867 0-1.326-1.025-.748-1.671L15.748 2.545c.139.057.265.145.367.259l3.631 4.058a.478.478 0 0 0-.039.039L6.916 21.197a.497.497 0 0 0-.127.333Zm8.356-19.06-8.192 9.155L.257 4.141c-.578-.646-.119-1.671.748-1.671h14.14Z"/></svg>
+    </button>
+		<nav class="h-full overflow-y-auto bg-dark min-w-[230px] p-7 text-white shadow-lg -translate-x-[230px] transition duration-500 absolute">
 			<div class="flex mb-12 text-warning px-2">
 				<svg class="" fill="currentColor" role="img" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vector Logo Zone</title><path d="M19.458 0l-5.311 2.024 1.989.534-4.847 16.085-4.867-16.25H1.48L8.974 24h4.645l7.043-20.226 1.858.499Z"/></svg>
 				<span class="font-bold text-2xl text-white ml-3 ">Admin</span>
@@ -78,7 +80,7 @@
 		<!-- Narbar End -->
 
 		<!-- Content Start -->
-		<section id="content" class="w-full transition-all duration-500 px-5">
+		<section id="content" class="w-full h-screen transition-all duration-500 overflow-hidden" >
       
       <div class="w-full px-5 py-3 flow-root">
         <div class="float-left font-semibold text-3xl">
@@ -91,7 +93,9 @@
       <hr class="border-t-1 border-secondary">
 
       <!-- Load Content -->
-      <div id="content-child" class="w-full h-screen"></div>
+      <!-- <div id="content-child" class="w-full h-screen"></div> -->
+
+      <object data="home.html" type="text/html" class="h-full w-full overflow-y-auto" ></object>
 
 		</section>
 		<!-- Content End -->
@@ -118,14 +122,16 @@
   function setContent(link){
 
     let objectTag = document.createElement('object');
-    objectTag.style.width = '100%';
-    objectTag.style.height = '100%';
+    console.log(screen.height)
+    objectTag.classList.add('w-full');
+    objectTag.classList.add('h-full');
     objectTag.type = 'text/html';
     objectTag.data = link;
-		contentChild.innerHTML = '';
+	  contentChild.innerHTML = '';
     contentChild.appendChild(objectTag);
+	console.log(document)
   }
-  setContent(baseContent);
+  // setContent(baseContent);
 
 	const btnNav = document.querySelector('#btn-nav');
 	const nav = document.querySelector('nav');
@@ -133,7 +139,8 @@
 	btnNav.addEventListener('click', function(){
 		nav.classList.toggle('-translate-x-[230px]');
 		btnNav.classList.toggle('translate-x-[230px]');
-		btnNav.innerHTML = btnNav.innerHTML=='&lt;'?'>':'<';
+		btnNav.classList.toggle('rotate-180');
+		// btnNav.innerHTML = btnNav.innerHTML=='&lt;'?'>':'<';
 		content.classList.toggle('ml-[230px]');
 	})
 
